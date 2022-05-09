@@ -39,10 +39,12 @@ public class Q1__Gugudan {
         }
     } // main
     static void calc(){
-
+        System.out.println("계산기");
     }
 
     static void bmi(){
+        System.out.println("BMI");
+
 
     }
     static void dice(){
