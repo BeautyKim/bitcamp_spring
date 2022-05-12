@@ -62,7 +62,7 @@ public class MemberCRUD {
                     break;
                 case "5":break;
                 case "6":
-                    System.out.println("총 회원목록 : " + service.findByAll());
+                    System.out.println("총 회원목록 : " + service.findAll());
                     break;
                 case "7":
                     System.out.println("총 회원수 : "+service.count()+"명");
@@ -108,7 +108,7 @@ public class MemberCRUD {
         void delete(Member member);
         Member findById(String id);
         List<Member> findByName(String name);
-        List<Member> findByAll();
+        List<Member> findAll();
         int count();
         boolean existsById(String id);
         void clear();
@@ -132,18 +132,22 @@ public class MemberCRUD {
         public Member findById(String id) {
             return map.get(id);
         }
+
         @Override
         public List<Member> findByName(String name) {
             return (List<Member>) map.get(name);
         }
+
         @Override
-        public List<Member> findByAll() {
+        public List<Member> findAll() {
             return (List<Member>) map.values();
         }
+
         @Override
         public int count() {
             return map.size();
         }
+
         @Override
         public boolean existsById(String id) {
             return map.containsKey(id);

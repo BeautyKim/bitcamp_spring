@@ -1,7 +1,12 @@
 package kr.readvice.api.common.algorithm;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Random;
 import java.util.Scanner;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * packageName: kr.scalar.api.common.step1
@@ -38,8 +43,29 @@ public class Q1__Gugudan {
             }
         }
     } // main
+    @Data
+    @AllArgsConstructor
+    static class Calculator{
+
+        private int num1;
+        private String opcode;
+        private int num2;
+        @Override public String toString(){
+
+            int res = 0;
+            switch (opcode){
+                case "+": res = num1 + num2; break;
+                case "-": res = num1 - num2; break;
+                case "*": res = num1 * num2; break;
+                case "/": res = num1 / num2; break;
+            }
+            return num1 + " "+opcode+" "+num2 +" = "+res;
+        }
+    }
     static void calc(){
-        System.out.println("계산기");
+        Scanner s = new Scanner(System.in);
+        System.out.println("숫자1, 연산자, 숫자2");
+        System.out.println(new Calculator(s.nextInt(), s.next(), s.nextInt()));;
     }
 
     static void bmi(){
@@ -47,6 +73,9 @@ public class Q1__Gugudan {
 
 
     }
+
+
+
     static void dice(){
         System.out.println("01 주사위");
         // 홀수나올때까지 주사위굴려 합하는 프로그래밍

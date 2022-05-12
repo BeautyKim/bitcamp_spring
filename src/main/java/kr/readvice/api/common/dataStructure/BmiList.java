@@ -1,24 +1,25 @@
 package kr.readvice.api.common.dataStructure;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * packageName   : kr.readvice.api.common.dataStructure
- * fileName      : ItemCRUD
+ * fileName      : BmiList
  * author        : beautyKim
- * date          : 2022-05-10
- * desc          : 스프링 컴포넌트 스캔
+ * date          : 2022-05-11
+ * desc          :
  * ================================
  * DATE              AUTHOR        NOTE
  * ================================
- * 2022-05-10         2022-05-10        최초 생성
+ * 2022-05-11         2022-05-11        최초 생성
  */
-public class ItemCRUD {
-    public static void main(String[] args){
+//키 height 몸무게 weight 생년월일 ssn (990101-1) 성별 gender
+public class BmiList {
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         MemberCRUD.MemberService service = new MemberCRUD.MemberServiceImpl();
         while (true) {
@@ -80,19 +81,53 @@ public class ItemCRUD {
         }
 
     }
-    @Data @AllArgsConstructor static class Item{
-        private int id;
-        private String name;
-        private int price;
+    @Data static class Bmi{
+        private double height, weight;
+        private String ssn, gender;
     }
-    interface ItemService{
-        void save(Item item);
+    interface BmiService{
+        void save(Bmi bmi);
+        void update(int i, Bmi bmi);
+        void delete(Bmi bmi);
+        List<Bmi> findAll();
+        List<Bmi> findByGender(String gender);
+        Bmi findById(int i);
+        int count();
     }
-    @RequiredArgsConstructor
-    class ItemServiceImpl implements ItemService{
-        @Override
-        public void save(Item item) {
+    static class BmiServiceImpl implements BmiService{
+        private final List<Bmi> list;
 
+        public BmiServiceImpl() { this.list = new ArrayList<>();
+        }
+
+        @Override
+        public void save(Bmi bmi) {list.add(bmi);}
+
+        @Override
+        public void update(int i, Bmi bmi) {list.set(i, bmi); }
+
+        @Override
+        public void delete(Bmi bmi) {list.remove(bmi); }
+
+        @Override
+        public List<Bmi> findAll() {
+            return list;
+        }
+
+        @Override
+        public List<Bmi> findByGender(String gender) {
+            return null;
+        }
+
+        @Override
+        public Bmi findById(int i) {
+            return null;
+        }
+
+        @Override
+        public int count() {
+            return list.size();
         }
     }
+
 }
