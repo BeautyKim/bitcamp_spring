@@ -2,12 +2,14 @@ package kr.readvice.api.auth.services;
 
 import kr.readvice.api.auth.domains.User;
 import kr.readvice.api.auth.repositories.UserRepository;
+import kr.readvice.api.common.dataStructure.Box;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -82,6 +84,20 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getOne(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<User> findByUserName(String name) {
+        List<User> ls = repository.findAll();
+        Box<String, User> box = new Box<>();
+//        ls = box.findByUserName(ls, name);
+//        ls.stream().filter(...)
+        return null;
+    }
+
+    @Override
+    public HashMap<String, User> mapFindByUserName(String name) {
         return null;
     }
 

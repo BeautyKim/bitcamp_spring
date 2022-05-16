@@ -2,6 +2,7 @@ package kr.readvice.api.common.algorithm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -464,5 +465,6 @@ public class Q1__Gugudan {
         }
 
     }
+
 
 }

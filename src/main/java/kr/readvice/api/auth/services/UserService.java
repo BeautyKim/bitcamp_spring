@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,8 +13,8 @@ import java.util.Optional;
  * packageName   : kr.readvice.api.domains
  * fileName      : ddd
  * author        : beautyKim
- * date          : 2022-05-04
- * desc          :
+ * date          : 2022-05-13
+ * desc          : custom
  * ================================
  * DATE              AUTHOR        NOTE
  * ================================
@@ -39,4 +40,9 @@ public interface UserService {
     boolean existsById(String userid);
 
     User getOne(Long id);
+
+    //custom
+    List<User> findByUserName(String name);
+    HashMap<String, User> mapFindByUserName(String name);
+
 }
