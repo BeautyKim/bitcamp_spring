@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * fileName      : HelloStream
  * author        : beautyKim
  * date          : 2022-05-16
- * desc          :
+ * desc          : 스트림 forEach
  * ================================
  * DATE              AUTHOR        NOTE
  * ================================
@@ -25,37 +25,24 @@ public class HelloStream {
     @Data
     public static class Hello{
     private String greeting, inLanguage;
-
-    public Hello(Builder builder){
-        this.greeting = builder.greeting;
-        this.inLanguage = builder.inLanguage;
-    }
-
-    @NoArgsConstructor static public class Builder{
-        private String greeting, inLanguage;
-        public Builder greeting(String greeting){ this.greeting=greeting; return this;};
-        public Builder inLanguage(String inLanguage){ this.inLanguage=inLanguage; return this;};
-        public Hello buid(){return new Hello(this);}
-    }
     }
 
     interface HelloService{
         Set<String> greet(String[] arr);
     }
-    static class HelloServiceImpl implements HelloService{
-        @Override
-        public Set<String> greet(String[] arr) {
-            return Arrays.asList(arr)
-                    .stream()
-                    .filter(e -> e.startsWith("영어"))
-                    .collect(Collectors.toSet());
-        }
-    }
 
     @Test
     void HelloStreamTest(){
         String[] arr = {"한국어 안녕", "영어 Hello"};
-        HelloService h = new HelloServiceImpl();
+        HelloService h = new HelloService() {
+            @Override
+            public Set<String> greet(String[] arr) {
+                return Arrays.asList(arr)
+                        .stream()
+                        .filter(e -> e.startsWith("한국어"))
+                        .collect(Collectors.toSet());
+            }
+        };
         Set<String> s = h.greet(arr);
         s.forEach(System.out::println);
     }

@@ -29,9 +29,10 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService{
     private final UserRepository repository;
 
+
     @Override
     public String login(User user) {
-        return repository.login(user);
+        return "";
     }
 
     @Override
@@ -41,7 +42,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findAll(Sort sort) {
-        return repository.findAll(sort);
+        return repository.findAll();
     }
 
     @Override
@@ -55,15 +56,14 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String put(User user) {
-        repository.put(user);
-        return null;
+    public String update(User user) {
+        return "";
     }
 
     @Override
     public String delete(User user) {
         repository.delete(user);
-        return null;
+        return "";
     }
 
     @Override
@@ -74,31 +74,20 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Optional<User> findById(String userid) {
-        return repository.findById(0L);
+        return repository.findById(0L); // userid 타입이 다름
     }
 
     @Override
     public boolean existsById(String userid) {
-        return repository.existsById(Long.valueOf(userid));
-    }
-
-    @Override
-    public User getOne(Long id) {
-        return null;
+        return repository.existsById(0L); // userid 타입이 다름
     }
 
     @Override
     public List<User> findByUserName(String name) {
         List<User> ls = repository.findAll();
         Box<String, User> box = new Box<>();
-//        ls = box.findByUserName(ls, name);
-//        ls.stream().filter(...)
+        // ls = box.findByUserName(ls, name);
+        // ls.stream().filter(...)
         return null;
     }
-
-    @Override
-    public HashMap<String, User> mapFindByUserName(String name) {
-        return null;
-    }
-
 }

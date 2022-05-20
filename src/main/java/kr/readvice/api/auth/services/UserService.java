@@ -21,15 +21,18 @@ import java.util.Optional;
  * 2022-05-04         2022-05-04        최초 생성
  */
 public interface UserService {
+
     String login(User user);
 
     List<User> findAll();
+
     List<User> findAll(Sort sort);
+
     Page<User> findAll(Pageable pageable);
 
     long count();
 
-    String put(User user);
+    String update(User user);
 
     String delete(User user);
 
@@ -39,10 +42,9 @@ public interface UserService {
 
     boolean existsById(String userid);
 
-    User getOne(Long id);
+    // custom
 
-    //custom
     List<User> findByUserName(String name);
-    HashMap<String, User> mapFindByUserName(String name);
+
 
 }

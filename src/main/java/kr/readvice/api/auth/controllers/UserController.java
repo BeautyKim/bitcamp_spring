@@ -20,7 +20,7 @@ import java.util.Optional;
  * ================================
  * DATE              AUTHOR        NOTE
  * ================================
- * 2022-05-04         2022-05-04        최초 생성
+ * 2022-05-04         beautyKim        최초 생성
  */
 @RestController
 @RequestMapping("/user")
@@ -35,10 +35,15 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(@RequestBody User user) {
+    public String logout() {
         return "";
     }
+    @PutMapping("/update")
+    public String update(@RequestBody User user) {
+        return service.update(user);
+    }
 
+    // Embeded Methods
     @GetMapping("/findAll")
     public List<User> findAll() {
         return service.findAll();
@@ -54,14 +59,9 @@ public class UserController {
         return service.findAll(pageable);
     }
 
-    @PostMapping("/count")
+    @GetMapping("/count")
     public long count() {
         return service.count();
-    }
-
-    @PostMapping("/put")
-    public String put(@RequestBody User user) {
-        return service.put(user);
     }
 
     @DeleteMapping("/delete")
@@ -84,8 +84,5 @@ public class UserController {
         return service.existsById(userid);
     }
 
-    @PostMapping("/getOne/{id}")
-    public User getOne(@PathVariable Long id) {
-        return service.getOne(id);
-    }
+
 }

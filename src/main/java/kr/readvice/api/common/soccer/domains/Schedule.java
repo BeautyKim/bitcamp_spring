@@ -1,6 +1,6 @@
 package kr.readvice.api.common.soccer.domains;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -16,18 +16,25 @@ import javax.persistence.*;
  * ================================
  * 2022-05-09         2022-05-09        최초 생성
  */
-@Data
+@Builder
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Component
 @Entity
 @Table(name = "schedules")
 public class Schedule {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String stadiumId;
-    private String scheDate;
+    @Id @Column(name = "Schedule_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) private long scheduleId;
+    @Column(nullable = false) private String stadiumId;
+    @Column(nullable = false) private String scheDate;
     private String gubun;
-    private String homeTeamId;
-    private String awayTeamId;
+    private String hometeamId;
+    private String awayteamId;
     private String homeScore;
     private String awayScore;
+
+    @ManyToOne
+    @JoinColumn(name = "stadium_no")
+    private Stadium stadiums;
 }
