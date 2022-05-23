@@ -1,7 +1,6 @@
-package kr.readvice.api.common.soccer.repositories;
+package kr.readvice.api.soccer.repositories;
 
-import kr.readvice.api.common.soccer.domains.Player;
-import kr.readvice.api.common.soccer.domains.Schedule;
+import kr.readvice.api.soccer.domains.Schedule;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +15,9 @@ import org.springframework.stereotype.Repository;
  * ================================
  * 2022-05-09         2022-05-09        최초 생성
  */
+interface ScheduleCustomRepository{
+
+}
 @Repository
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 }

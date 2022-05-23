@@ -1,7 +1,7 @@
-package kr.readvice.api.common.soccer.services;
+package kr.readvice.api.soccer.services;
 
-import kr.readvice.api.common.soccer.domains.Stadium;
-import kr.readvice.api.common.soccer.repositories.StadiumRepository;
+import kr.readvice.api.soccer.domains.Player;
+import kr.readvice.api.soccer.repositories.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,31 +13,31 @@ import java.util.Optional;
 
 /**
  * packageName   : kr.readvice.api.common.soccer.services
- * fileName      : StadiumServiceImpl
+ * fileName      : PlayerServiceImpl
  * author        : beautyKim
  * date          : 2022-05-09
  * desc          :
  * ================================
  * DATE              AUTHOR        NOTE
  * ================================
- * 2022-05-09         2022-05-09        최초 생성
+ * 2022-05-09         beautyKim        최초 생성
  */
 @Service
 @RequiredArgsConstructor
-public class StadiumServiceImpl implements StadiumService{
-    private final StadiumRepository repository;
+public class PlayerServiceImpl implements PlayerService{
+    private final PlayerRepository repository;
     @Override
-    public List<Stadium> findAll() {
+    public List<Player> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public List<Stadium> findAll(Sort sort) {
+    public List<Player> findAll(Sort sort) {
         return repository.findAll(sort);
     }
 
     @Override
-    public Page<Stadium> findAll(Pageable pageable) {
+    public Page<Player> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -47,29 +47,29 @@ public class StadiumServiceImpl implements StadiumService{
     }
 
     @Override
-    public String delete(Stadium stadium) {
-        repository.delete(stadium);
+    public String delete(Player player) {
+        repository.delete(player);
         return "";
     }
 
     @Override
-    public String save(Stadium stadium) {
-        repository.save(stadium);
+    public String save(Player player) {
+        repository.save(player);
         return "";
     }
 
     @Override
-    public Optional<Stadium> findById(String stadiumId) {
+    public Optional<Player> findById(String playerId) {
         return repository.findById(0L);
     }
 
     @Override
-    public boolean existsById(String stadiumId) {
-        return repository.existsById(Long.valueOf(stadiumId));
+    public boolean existsById(String playerId) {
+        return repository.existsById(Long.valueOf(playerId));
     }
 
     @Override
-    public Stadium getOne(Long stadiumId) {
+    public Player getOne(Long playerId) {
         return null;
     }
 }

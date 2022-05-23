@@ -1,6 +1,6 @@
-package kr.readvice.api.common.soccer.services;
+package kr.readvice.api.soccer.services;
 
-import kr.readvice.api.common.soccer.domains.Team;
+import kr.readvice.api.soccer.domains.Stadium;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * packageName   : kr.readvice.api.common.soccer.services
- * fileName      : TeamService
+ * fileName      : StadiumService
  * author        : beautyKim
  * date          : 2022-05-09
  * desc          :
@@ -19,22 +19,22 @@ import java.util.Optional;
  * ================================
  * 2022-05-09         2022-05-09        최초 생성
  */
-public interface TeamService {
-    List<Team> findAll();
+public interface StadiumService {
+    List<Stadium> findAll();
 
-    List<Team> findAll(Sort sort);
+    List<Stadium> findAll(Sort sort);
 
-    Page<Team> findAll(Pageable pageable);
+    Page<Stadium> findAll(Pageable pageable);
 
     long count();
 
-    String delete(Team player);
+    String delete(Stadium stadium);
 
-    String save(Team player);
+    String save(Stadium stadium);
 
-    Optional<Team> findById(String playerid);
+    Optional<Stadium> findById(String stadiumId);
 
-    boolean existsById(String playerid);
+    boolean existsById(String stadiumId);
 
-    Team getOne(Long teamId);
+    Stadium getOne(Long id);
 }

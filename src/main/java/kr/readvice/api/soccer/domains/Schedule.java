@@ -1,4 +1,4 @@
-package kr.readvice.api.common.soccer.domains;
+package kr.readvice.api.soccer.domains;
 
 import lombok.*;
 import org.springframework.stereotype.Component;

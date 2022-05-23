@@ -1,8 +1,7 @@
-package kr.readvice.api.common.soccer.controllers;
+package kr.readvice.api.soccer.controllers;
 
-import kr.readvice.api.common.soccer.domains.Schedule;
-import kr.readvice.api.common.soccer.domains.Stadium;
-import kr.readvice.api.common.soccer.services.StadiumService;
+import kr.readvice.api.soccer.domains.Stadium;
+import kr.readvice.api.soccer.services.StadiumService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

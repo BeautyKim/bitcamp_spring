@@ -1,7 +1,7 @@
-package kr.readvice.api.common.soccer.services;
+package kr.readvice.api.soccer.services;
 
-import kr.readvice.api.common.soccer.domains.Schedule;
-import kr.readvice.api.common.soccer.repositories.ScheduleRepository;
+import kr.readvice.api.soccer.domains.Stadium;
+import kr.readvice.api.soccer.repositories.StadiumRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * packageName   : kr.readvice.api.common.soccer.services
- * fileName      : ScheduleServiceImpl
+ * fileName      : StadiumServiceImpl
  * author        : beautyKim
  * date          : 2022-05-09
  * desc          :
@@ -24,17 +24,21 @@ import java.util.Optional;
  */
 @Service
 @RequiredArgsConstructor
-public class ScheduleServiceImpl implements ScheduleService{
-    private final ScheduleRepository repository;
-
+public class StadiumServiceImpl implements StadiumService{
+    private final StadiumRepository repository;
     @Override
-    public List<Schedule> findAll() {
+    public List<Stadium> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public List<Schedule> findAll(Sort sort) {
+    public List<Stadium> findAll(Sort sort) {
         return repository.findAll(sort);
+    }
+
+    @Override
+    public Page<Stadium> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -43,34 +47,29 @@ public class ScheduleServiceImpl implements ScheduleService{
     }
 
     @Override
-    public String delete(Schedule schedule) {
-        repository.delete(schedule);
+    public String delete(Stadium stadium) {
+        repository.delete(stadium);
         return "";
     }
 
     @Override
-    public String save(Schedule schedule) {
-        repository.save(schedule);
+    public String save(Stadium stadium) {
+        repository.save(stadium);
         return "";
     }
 
     @Override
-    public Optional<Schedule> findById(String scheduleId) {
+    public Optional<Stadium> findById(String stadiumId) {
         return repository.findById(0L);
     }
 
     @Override
-    public Page<Schedule> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+    public boolean existsById(String stadiumId) {
+        return repository.existsById(Long.valueOf(stadiumId));
     }
 
     @Override
-    public boolean existsById(String scheduleId) {
-        return repository.existsById(Long.valueOf(scheduleId));
-    }
-
-    @Override
-    public Schedule getOne(Long scheduleId) {
+    public Stadium getOne(Long stadiumId) {
         return null;
     }
 }

@@ -1,7 +1,7 @@
-package kr.readvice.api.common.soccer.services;
+package kr.readvice.api.soccer.services;
 
-import kr.readvice.api.common.soccer.domains.Team;
-import kr.readvice.api.common.soccer.repositories.TeamRepository;
+import kr.readvice.api.soccer.domains.Team;
+import kr.readvice.api.soccer.repositories.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
