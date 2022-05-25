@@ -1,8 +1,10 @@
-package kr.readvice.api.auth.repositories;
+package kr.readvice.api.user.services;
+
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * packageName   : kr.readvice.api.auth.repositories
- * fileName      : AuthRepositories
+ * packageName   : kr.readvice.api.auth.services
+ * fileName      : AuthServiceImpl
  * author        : beautyKim
  * date          : 2022-05-09
  * desc          :
@@ -11,5 +13,5 @@ package kr.readvice.api.auth.repositories;
  * ================================
  * 2022-05-09         2022-05-09        최초 생성
  */
-public interface AuthRepository {
+public class AuthServiceImpl {
 }

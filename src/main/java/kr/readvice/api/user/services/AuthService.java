@@ -1,4 +1,4 @@
-package kr.readvice.api.auth.services;
+package kr.readvice.api.user.services;
 
 /**
  * packageName   : kr.readvice.api.auth.services
