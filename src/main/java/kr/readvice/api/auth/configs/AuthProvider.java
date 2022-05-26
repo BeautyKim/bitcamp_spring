@@ -6,7 +6,7 @@ import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import kr.readvice.api.user.domains.Role;
-import kr.readvice.api.user.services.AuthServiceImpl;
+import kr.readvice.api.auth.Services.AuthServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Value;

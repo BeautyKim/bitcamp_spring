@@ -5,7 +5,9 @@ package kr.readvice.api.common.lambda;
 import static kr.readvice.api.common.dataStructure.AppleList.Apple;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
@@ -38,6 +40,15 @@ public class Lambda {
         System.out.println(random(1,6));
 
     }
+    public static long longParse(String s){
+        Function<String, Long> f = Long::parseLong;
+        return f.apply(s);
+    }
+    public static float floatParse(String s){
+        Function<String, Float> f = Float::parseFloat;
+        return f.apply(s);
+    }
+
     // String -> Integer
     public static int integer(String s){
         // Integer i = Integer.parseInt("900");
@@ -72,6 +83,11 @@ public class Lambda {
     public static File makeFile(String a){
         Function<String, File> f = File::new;
         return f.apply(a);
+    }
+    public static String date(){
+        Supplier<String> s = () -> string(LocalDate.now());
+        return string(s);
+
     }
 }
 
